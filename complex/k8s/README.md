@@ -45,3 +45,46 @@ $ kubectl apply -f server-config.yaml
 
 both the deployment object configuration and then clusterip configuration would be done because of the above command .
 
+
+
+Now we will work on the redis config files
+and we will create the following things
+
+redis-cluster-ip-service.yaml
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: web
+  ports:
+    - port: 3000
+      targetPort: 3000
+```
+
+
+redis-deployment-service.yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: redis
+  template:
+    metadata:
+      labels:
+        component: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+```
