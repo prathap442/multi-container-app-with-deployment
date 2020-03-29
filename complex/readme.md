@@ -88,3 +88,34 @@ spec:
           ports:
             - containerPort: 6379
 ```
+
+
+we have created different files for the 
+- servers-backend
+- client-frontend
+- postgres-databaseend
+- redis
+
+What is the requirement of Persistant Volume Claim?
+
+> The persistant volume claim is required to prevent the dataloss from happening and the dataloss prevention can happen when the volume that is mounted is mounted on the host machine but not on the filesystem where the container tells
+
+
+What is difference between the persistant Volume and the Persistant Volume Claim?
+
+> Persistant Volume
+```
+  The persistant volume is the thing that is used to store the data inside a specific directory 
+```
+> Persistanct Volume claim
+```
+  The persistant volume claim(PVC) is like a dashboard that displays all the set of the mount volume storages that are available. 
+
+  In short to say it is just like a dashbord as shown in the pic `shot13.png` .
+
+  There a 2 kinds of the persistant volumes
+  - Static Volume
+  - Dynamic Volume
+```
+
+
